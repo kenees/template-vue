@@ -1,6 +1,8 @@
 <template>
-    <div>
-      {{ name }}, 
+    <div class='box'>
+
+      <p class='title'>title</p>
+      {{ name }},少的发 
       总数： {{ todoCount }} <br/>
       count: {{ count }} <br/>
       getCount: {{ getCount }} <br/>
@@ -21,9 +23,38 @@ export default {
         }
     },
 
+    beforeCreate() {
+
+    },
+
     created() {
 
     },
+
+    beforeMount() {
+
+    },
+
+    mounted() {
+
+    },
+
+    beforeUpdate() {
+
+    },
+
+    updated() {
+
+    },
+
+    beforeDestory() {
+
+    },
+
+    destoryed() {
+
+    },
+
 
     computed: {
         ...mapGetters([
@@ -43,4 +74,16 @@ export default {
     }
 }
 </script>
+
+<style lang="scss">
+    .box {
+        width: 100%;
+        height: 300px;
+        background: red;
+
+        .title {
+            font-size: 100px;
+        }
+    }
+</style>
 

@@ -17,24 +17,7 @@ module.exports = {
             {
                 test: /\.js$/,
                 exclude: /node_modules/,
-                use: {
-                    loader: "babel-loader"
-                }
-            },
-            {
-                test: /\.css$/,
-                use: [
-                    { loader: "vue-style-loader"},
-                    { loader: "css-loader"},
-                ]
-            },
-            {
-                test: /\.sass$/,
-                use: [
-                    { loader: "vue-style-loader"},
-                    { loader: "css-loader"},
-                    { loader: "sass-loader"}
-                ]
+                use: ['babel-loader'],
             },
             {
                 test: /\.(png|svg|jpg|gif)$/,
@@ -46,7 +29,32 @@ module.exports = {
             },
             {
                 test: /\.vue$/,
-                use: ['vue-loader']
+                loader: 'vue-loader',
+                options: {
+                    loaders: {
+                        scss: 'vue-style-loader!css-loader!sass-loader!style-loader',
+                    }
+                }
+            },
+            {
+                test: /\.css$/,
+                use: [
+                    {
+                        loader: MiniCssExtractPlugin.loader,
+                    },
+                   'style-loader',
+                   'css-loader'
+                ]
+            },
+            {
+                test: /\.(sa|sc|c)ss$/,
+                use: [
+                    { 
+                        loader: MiniCssExtractPlugin.loader,
+                    },
+                    'css-loader',
+                    'sass-loader',
+                ]
             }
         ]
     },
